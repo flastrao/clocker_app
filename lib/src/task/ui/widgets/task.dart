@@ -1,3 +1,4 @@
+import 'package:cloker_app/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
@@ -9,6 +10,7 @@ class Task extends StatelessWidget {
   String description;
   String term;
   int progressStatus;
+  String deadline;
   Task(
       {Key? key,
       required this.progress,
@@ -16,9 +18,72 @@ class Task extends StatelessWidget {
       required this.goal,
       required this.description,
       required this.term,
-      required this.progressStatus});
+      required this.progressStatus,
+      required this.deadline});
   @override
   Widget build(BuildContext context) {
+    final AppBloc _appBloc = BlocProvider.of<AppBloc>(context);
+    double width = _appBloc.getWidth();
+    double height = _appBloc.getHeight();
+    AlertDialog detailsDialog() {
+      return AlertDialog(
+        content: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            color: Colors.white,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      width: width * 0.2,
+                      height: height * 0.04,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(color: Colors.grey)),
+                      child: Text(
+                        "Backend",
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      width: width * 0.2,
+                      height: height * 0.04,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(color: Colors.grey)),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.circle,
+                            size: width * 0.06,
+                            color: Colors.black,
+                          ),
+                          Text(
+                            "   Alta",
+                            style: TextStyle(fontSize: 14),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Text(title),
+                Text(deadline),
+                Text("DESCRIPCIÓN"),
+                Text(
+                    "Comenzar con la asignacion de cursos para empezar a capacitar al nuevo personal de Minkai."),
+                Text("ASIGNACIÓN"),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     Size size = MediaQuery.of(context).size;
     return (Container(
         height: size.height * 0.12,
@@ -50,12 +115,17 @@ class Task extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        title,
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontFamily: "Poppins"),
+                      InkWell(
+                        onTap: () => showDialog(
+                            context: context,
+                            builder: (BuildContext context) => detailsDialog()),
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontFamily: "Poppins"),
+                        ),
                       ),
                       Container(
                         height: size.height * 0.053,

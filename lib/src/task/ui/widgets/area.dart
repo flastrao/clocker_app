@@ -37,6 +37,7 @@ class _Area extends State<Area> {
         goal: "1",
         description: "Pelea a muerte con memo",
         term: "En 15 min",
+        deadline: "Quedan 5 dias 2 horas y 45 minutos",
         progressStatus: 1);
 
     return Column(
