@@ -104,7 +104,9 @@ class _NavControlerScreenState extends State<NavControlerScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
         title: appbars.elementAt(_selectedIndex),
         actions: <Widget>[
           IconButton(

@@ -22,11 +22,11 @@ class _GeneralTabState extends State<GeneralTab> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Doubt(
-              doubtTitle: "how to defeat memo?",
+              doubtTitle: "How to defeat memo?",
               doubtDescription:
                   "Cuantos puños hay que meterle a memo para derrotarlo?"),
           Doubt(
-              doubtTitle: "how to defeat memo?",
+              doubtTitle: "How to defeat memo?",
               doubtDescription:
                   "Cuantos puños hay que meterle a memo para derrotarlo?"),
         ],

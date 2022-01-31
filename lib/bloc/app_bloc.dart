@@ -14,11 +14,11 @@ class AppBloc extends Bloc {
   }
 
   double getHeight() {
-    return this.height;
+    return height;
   }
 
   double getWidth() {
-    return this.width;
+    return width;
   }
 
   Future<bool> isLoged() async {
