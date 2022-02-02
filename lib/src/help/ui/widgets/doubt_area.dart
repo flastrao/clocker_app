@@ -1,20 +1,22 @@
 import 'package:cloker_app/bloc/app_bloc.dart';
+import 'package:cloker_app/src/help/ui/widgets/doubts.dart';
 import 'package:cloker_app/src/task/ui/widgets/task.dart';
 import 'package:cloker_app/widgets/generic_button.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
-class Area extends StatefulWidget {
+class DoubtArea extends StatefulWidget {
   String area;
-  Area(this.area);
+  DoubtArea(this.area);
   @override
-  State<Area> createState() => _Area(this.area);
+  State<DoubtArea> createState() => _DoubtArea(this.area);
 }
 
-class _Area extends State<Area> {
+class _DoubtArea extends State<DoubtArea> {
   late bool status;
   String area;
-  _Area(this.area);
+  _DoubtArea(this.area);
+
   void initState() {
     status = false;
   }
@@ -31,44 +33,40 @@ class _Area extends State<Area> {
     double width = _appBloc.getWidth();
     double height = _appBloc.getHeight();
 
-    Task displayTask = Task(
-        progress: "1",
-        title: "Defeat memo",
-        goal: "1",
-        description: "Pelea a muerte con memo",
-        term: "En 15 min",
-        deadline: "Quedan 5 dias 2 horas y 45 minutos",
-        progressStatus: 1);
+    Doubt displayDoubt = Doubt(
+      doubtTitle: "How to defeat memo?",
+      doubtDescription:
+          "Cuantos puños hay que meterle a memo para derrotarlo??",
+    );
 
     return Column(
       children: [
         Container(
-            alignment: Alignment.centerRight,
-            height: height * 0.07141,
-            width: width * 1,
-            color: Color(0xFF606060),
+            alignment: Alignment.center,
+            height: height * 0.07,
+            width: width,
+            color: const Color(0xFF606060),
             child: Row(
               children: [
                 Container(
-                  height: height * 0.06,
+                  height: height * 0.07,
                   width: width * 0.4,
-                  margin: EdgeInsets.only(left: width * 0.25),
+                  margin: EdgeInsets.only(left: width * 0.28),
                   child: Center(
                     child: Text(
                       area,
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: height * 0.02,
-                          letterSpacing: 1.5,
-                          fontFamily: "Roboto"),
+                        color: Colors.white,
+                        fontSize: height * 0.02,
+                        letterSpacing: 1.5,
+                      ),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: width * 0.1),
+                  margin: EdgeInsets.only(left: width * 0.02),
                   height: height * 0.06,
                   width: height * 0.06,
-                  color: Color(0xFF606060),
                   child: GenericButton(
                     textOrIcon: false,
                     icon: Icons.keyboard_arrow_down_rounded,
@@ -88,7 +86,7 @@ class _Area extends State<Area> {
                 ),
               ],
             )),
-        status ? displayTask : Container(),
+        status ? displayDoubt : Container(),
       ],
     );
   }
