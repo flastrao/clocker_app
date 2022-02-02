@@ -10,10 +10,13 @@ class SessionModel {
   String? startedAt;
   @JsonKey(defaultValue: "")
   String? finishedAt;
+  @JsonKey(defaultValue: "")
+  String? duration;
 
   SessionModel({
     Key? key,
     required this.startedAt,
     required this.finishedAt,
+    required this.duration,
   });
 }
