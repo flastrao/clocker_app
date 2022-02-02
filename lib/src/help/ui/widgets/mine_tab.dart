@@ -1,4 +1,5 @@
 import 'package:cloker_app/bloc/app_bloc.dart';
+import 'package:cloker_app/src/help/ui/screens/new_doubt_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
@@ -16,17 +17,31 @@ class _MineTabState extends State<MineTab> {
     double width = _appBloc.getWidth();
     double height = _appBloc.getHeight();
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          margin: EdgeInsets.symmetric(vertical: height * 0.02),
-          child: const Text(
-            "No has iniciado dudas.",
-            style: TextStyle(fontStyle: FontStyle.italic),
-          ),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => NewDoubt()));
+          },
+          backgroundColor: Colors.black,
+          child: const Icon(Icons.add)),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: width,
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(vertical: height * 0.02),
+              child: const Text(
+                "No has iniciado dudas.",
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
