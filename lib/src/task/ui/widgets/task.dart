@@ -1,4 +1,5 @@
 import 'package:cloker_app/bloc/app_bloc.dart';
+import 'package:cloker_app/src/task/ui/widgets/task_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
@@ -25,10 +26,58 @@ class Task extends StatelessWidget {
     final AppBloc _appBloc = BlocProvider.of<AppBloc>(context);
     double width = _appBloc.getWidth();
     double height = _appBloc.getHeight();
+    Container userTag(name, bool active) {
+      return (Container(
+        alignment: Alignment.center,
+        width: width * 0.28,
+        height: height * 0.04,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: Colors.grey)),
+        child: Row(
+          children: [
+            Icon(
+              Icons.circle,
+              size: width * 0.06,
+              color: active ? Colors.black : Colors.grey,
+            ),
+            Text(
+              "   " + name,
+              style: TextStyle(fontSize: 14),
+            ),
+          ],
+        ),
+      ));
+    }
+
+    Container objetive(String objetiveDescription, bool progressStatus) {
+      return (Container(
+        height: height * 0.05,
+        margin: EdgeInsets.only(top: height * 0.005),
+        decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+        child: Row(
+          children: [
+            Container(
+                margin: EdgeInsets.only(left: width * 0.02),
+                width: width * 0.57,
+                child: Text(
+                  objetiveDescription,
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                )),
+            InkWell(
+              child: Icon(Icons.check_box_rounded,
+                  color: progressStatus ? Colors.black : Colors.grey),
+            )
+          ],
+        ),
+      ));
+    }
+
     AlertDialog detailsDialog() {
       return AlertDialog(
         content: SingleChildScrollView(
           child: Container(
+            width: width * 0.8,
             margin: EdgeInsets.symmetric(vertical: 10.0),
             color: Colors.white,
             child: Column(
@@ -71,12 +120,44 @@ class Task extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(title),
-                Text(deadline),
-                Text("DESCRIPCIÓN"),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  height: height * 0.05,
+                  child: Text(
+                    title,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
                 Text(
-                    "Comenzar con la asignacion de cursos para empezar a capacitar al nuevo personal de Minkai."),
-                Text("ASIGNACIÓN"),
+                  deadline,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(
+                  "\nDESCRIPCIÓN",
+                  style: TextStyle(fontSize: 10),
+                ),
+                Text(
+                  description,
+                  style: TextStyle(fontSize: 14),
+                ),
+                Text(
+                  "\nASIGNACIÓN\n",
+                  style: TextStyle(fontSize: 10),
+                ),
+                Row(
+                  children: [
+                    userTag("Nombre.A", false),
+                    userTag("Nombre.A", false),
+                  ],
+                ),
+                Text(
+                  "\nCRITERIOS DE ACEPTACIÓN\n",
+                  style: TextStyle(fontSize: 10),
+                ),
+                objetive("Descripcion de objetivo", true),
+                objetive("Descripcion de objetivo", true),
+                objetive("Descripcion de objetivo", false),
+                actions(false, true)
               ],
             ),
           ),
