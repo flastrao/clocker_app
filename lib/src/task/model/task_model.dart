@@ -1,5 +1,5 @@
-import 'package:cloker_app/src/task/model/asigned_model.dart';
-import 'package:cloker_app/src/task/model/objectives_model.dart';
+import 'package:clocker_app/src/task/model/asigned_model.dart';
+import 'package:clocker_app/src/task/model/objectives_model.dart';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'task_model.g.dart';

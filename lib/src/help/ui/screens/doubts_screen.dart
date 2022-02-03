@@ -1,4 +1,4 @@
-import 'package:cloker_app/src/help/ui/widgets/tab_bar_doubts.dart';
+import 'package:clocker_app/src/help/ui/widgets/tab_bar_doubts.dart';
 import 'package:flutter/material.dart';
 
 class DoubtScreen extends StatefulWidget {

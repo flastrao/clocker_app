@@ -1,4 +1,4 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
@@ -22,10 +22,9 @@ class UserProfileDrawer extends StatelessWidget {
                 margin: EdgeInsets.only(top: width * 0.09),
                 width: width * 0.2,
                 height: width * 0.2,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white, width: 3),
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  image: const DecorationImage(
+                  image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
                       "https://somoskudasai.com/wp-content/uploads/2021/07/1-Madoka.jpg",

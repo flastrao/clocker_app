@@ -1,10 +1,10 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
-import 'package:cloker_app/src/help/ui/screens/doubts_screen.dart';
-import 'package:cloker_app/src/session/ui/screens/session_screen.dart';
-import 'package:cloker_app/src/task/ui/screens/tasks_screen.dart';
-import 'package:cloker_app/src/team/ui/screens/team_screen.dart';
-import 'package:cloker_app/src/user/ui/widgets/whatis_screen.dart';
-import 'package:cloker_app/widgets/drawer.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/src/help/ui/screens/doubts_screen.dart';
+import 'package:clocker_app/src/session/ui/screens/session_screen.dart';
+import 'package:clocker_app/src/task/ui/screens/tasks_screen.dart';
+import 'package:clocker_app/src/team/ui/screens/team_screen.dart';
+import 'package:clocker_app/src/user/ui/widgets/whatis_screen.dart';
+import 'package:clocker_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 

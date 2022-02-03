@@ -1,7 +1,7 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
-import 'package:cloker_app/src/help/ui/widgets/general_tab.dart';
-import 'package:cloker_app/src/help/ui/widgets/historic_tab.dart';
-import 'package:cloker_app/src/help/ui/widgets/mine_tab.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/src/help/ui/widgets/general_tab.dart';
+import 'package:clocker_app/src/help/ui/widgets/historic_tab.dart';
+import 'package:clocker_app/src/help/ui/widgets/mine_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 

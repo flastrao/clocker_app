@@ -1,4 +1,4 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
@@ -17,6 +17,11 @@ class _DoubtDetailState extends State<DoubtDetail> {
     double height = _appBloc.getHeight();
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.black,
+        child: const Icon(Icons.check),
+      ),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         leading: const BackButton(),
@@ -123,6 +128,50 @@ class _DoubtDetailState extends State<DoubtDetail> {
                     fontSize: 14.0),
               ),
             ),
+            Container(
+              margin: EdgeInsets.only(top: height * 0.012),
+              child: Divider(
+                color: Colors.grey[500],
+              ),
+            ),
+            Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(
+                    top: height * 0.012,
+                  ),
+                  child: const Icon(
+                    Icons.edit,
+                    size: 20,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: height * 0.012,
+                    left: width * 0.01,
+                  ),
+                  child: const Text(
+                    "Agregar un comentario",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: height * 0.02,
+              ),
+              width: width * 0.9,
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Agrega un comentario...',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            )
           ],
         ),
       ),

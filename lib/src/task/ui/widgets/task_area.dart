@@ -1,6 +1,6 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
-import 'package:cloker_app/src/task/ui/widgets/task.dart';
-import 'package:cloker_app/widgets/generic_button.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/src/task/ui/widgets/task.dart';
+import 'package:clocker_app/widgets/generic_button.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 

@@ -1,4 +1,4 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
@@ -33,123 +33,125 @@ class _NewDoubtState extends State<NewDoubt> {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(
-              top: height * 0.03,
-              left: width * 0.04,
-            ),
-            child: const Text(
-              "Titulo de la duda",
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(
+                top: height * 0.03,
+                left: width * 0.04,
               ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: height * 0.02,
-              left: width * 0.04,
-            ),
-            width: width * 0.9,
-            child: TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Agrega un titulo a la duda',
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: height * 0.02,
-              left: width * 0.04,
-            ),
-            child: const Text(
-              "Descripción",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: height * 0.02,
-              left: width * 0.04,
-            ),
-            width: width * 0.9,
-            child: TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Incluye una pequeña descripción de la duda...',
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(
-                  top: height * 0.02,
-                  left: width * 0.04,
+              child: const Text(
+                "Titulo de la duda",
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                child: Icon(Icons.location_on_rounded),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  top: height * 0.02,
-                  left: width * 0.01,
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: height * 0.02,
+                left: width * 0.04,
+              ),
+              width: width * 0.9,
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Agrega un titulo a la duda',
+                  border: OutlineInputBorder(),
                 ),
-                child: const Text(
-                  "Marcar departamento",
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w400,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: height * 0.02,
+                left: width * 0.04,
+              ),
+              child: const Text(
+                "Descripción",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: height * 0.02,
+                left: width * 0.04,
+              ),
+              width: width * 0.9,
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Incluye una pequeña descripción de la duda...',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(
+                    top: height * 0.02,
+                    left: width * 0.04,
+                  ),
+                  child: Icon(Icons.location_on_rounded),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: height * 0.02,
+                    left: width * 0.01,
+                  ),
+                  child: const Text(
+                    "Marcar departamento",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              top: height * 0.02,
-              left: width * 0.04,
+              ],
             ),
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 3.0),
-            width: width * 0.9,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4.0),
-                border: Border.all(color: Colors.grey, width: 1.0)),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                value: value,
-                isExpanded: true,
-                iconSize: 36,
-                hint: const Text("Selecciona un departamento"),
-                items: items.map(buildMenuItem).toList(),
-                onChanged: (value) => setState(() => this.value = value),
+            Container(
+              margin: EdgeInsets.only(
+                top: height * 0.02,
+                left: width * 0.04,
               ),
-            ),
-          ),
-          Center(
-            child: Container(
-              width: width * 0.8,
-              margin: EdgeInsets.only(top: height * 0.02),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 3.0),
+              width: width * 0.9,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.0),
+                  border: Border.all(color: Colors.grey, width: 1.0)),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  value: value,
+                  isExpanded: true,
+                  iconSize: 36,
+                  hint: const Text("Selecciona un departamento"),
+                  items: items.map(buildMenuItem).toList(),
+                  onChanged: (value) => setState(() => this.value = value),
                 ),
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(addedSnackBar);
-                },
-                child: const Text('Agregar duda'),
               ),
             ),
-          ),
-        ],
+            Center(
+              child: Container(
+                width: width * 0.8,
+                margin: EdgeInsets.only(top: height * 0.02),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                  ),
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(addedSnackBar);
+                  },
+                  child: const Text('Agregar duda'),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
