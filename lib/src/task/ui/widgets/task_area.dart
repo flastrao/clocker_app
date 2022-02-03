@@ -1,36 +1,22 @@
 import 'package:clocker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/src/help/ui/widgets/doubts.dart';
 import 'package:clocker_app/src/task/ui/widgets/task.dart';
-import 'package:clocker_app/widgets/generic_button.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
 class TaskArea extends StatefulWidget {
-  String area;
-  TaskArea(this.area);
+  TaskArea({Key? key}) : super(key: key);
+
   @override
-  State<TaskArea> createState() => _TaskArea(this.area);
+  State<TaskArea> createState() => _DoubtArea();
 }
 
-class _TaskArea extends State<TaskArea> {
-  late bool status;
-  String area;
-  _TaskArea(this.area);
-  void initState() {
-    status = false;
-  }
-
-  void onPressed() {
-    setState(() {
-      status = !status;
-    });
-  }
-
+class _DoubtArea extends State<TaskArea> {
   @override
   Widget build(BuildContext context) {
     final AppBloc _appBloc = BlocProvider.of<AppBloc>(context);
     double width = _appBloc.getWidth();
     double height = _appBloc.getHeight();
-
     Task displayTask = Task(
         progress: "1",
         title: "Defeat memo",
@@ -40,56 +26,36 @@ class _TaskArea extends State<TaskArea> {
         deadline: "Quedan 5 dias 2 horas y 45 minutos",
         progressStatus: 1);
 
-    return Column(
-      children: [
-        Container(
-            alignment: Alignment.centerRight,
-            height: height * 0.07141,
-            width: width * 1,
-            color: Color(0xFF606060),
-            child: Row(
-              children: [
-                Container(
-                  height: height * 0.06,
-                  width: width * 0.4,
-                  margin: EdgeInsets.only(left: width * 0.25),
-                  child: Center(
-                    child: Text(
-                      area,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: height * 0.02,
-                          letterSpacing: 1.5,
-                          fontFamily: "Roboto"),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: width * 0.1),
-                  height: height * 0.06,
-                  width: height * 0.06,
-                  color: Color(0xFF606060),
-                  child: GenericButton(
-                    textOrIcon: false,
-                    icon: Icons.keyboard_arrow_down_rounded,
-                    onPressed: () => onPressed(),
-                    context: context,
-                    height: height * 0.06,
-                    width: width * 0.06,
-                    topMargin: 0,
-                    leftMargin: 0,
-                    rightMargin: 0,
-                    bottomMargin: 0,
-                    circularRadius: 0,
-                    firstColor: Color(0xFF606060),
-                    secondColor: Color(0xFF606060),
-                    shadow: false,
-                  ),
-                ),
-              ],
-            )),
-        status ? displayTask : Container(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          ExpansionTile(
+            title: Center(child: const Text("BACKEND")),
+            collapsedBackgroundColor: Color(0xFF606060),
+            backgroundColor: Color(0xFF606060),
+            collapsedTextColor: Colors.white,
+            collapsedIconColor: Colors.white,
+            children: <Widget>[displayTask, displayTask],
+          ),
+          ExpansionTile(
+            title: Center(child: const Text("MOBILE")),
+            collapsedBackgroundColor: Color(0xFF606060),
+            backgroundColor: Color(0xFF606060),
+            collapsedTextColor: Colors.white,
+            collapsedIconColor: Colors.white,
+            children: <Widget>[displayTask],
+          ),
+          ExpansionTile(
+            title: Center(child: const Text("WEB")),
+            collapsedBackgroundColor: Color(0xFF606060),
+            backgroundColor: Color(0xFF606060),
+            collapsedTextColor: Colors.white,
+            collapsedIconColor: Colors.white,
+            children: <Widget>[displayTask],
+          ),
+        ],
+      ),
     );
   }
 }
