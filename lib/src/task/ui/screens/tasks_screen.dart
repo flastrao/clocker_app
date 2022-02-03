@@ -1,4 +1,4 @@
-import 'package:cloker_app/src/task/ui/widgets/tab_bar_task.dart';
+import 'package:clocker_app/src/task/ui/widgets/tab_bar_task.dart';
 import 'package:flutter/material.dart';
 
 class TasksScreen extends StatefulWidget {

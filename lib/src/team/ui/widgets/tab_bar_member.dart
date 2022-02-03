@@ -1,8 +1,8 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
-import 'package:cloker_app/src/task/ui/widgets/finished_task.dart';
-import 'package:cloker_app/src/task/ui/widgets/pending_tab.dart';
-import 'package:cloker_app/src/team/ui/widgets/active_tab.dart';
-import 'package:cloker_app/src/team/ui/widgets/inactive_tab.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/src/task/ui/widgets/finished_task.dart';
+import 'package:clocker_app/src/task/ui/widgets/pending_tab.dart';
+import 'package:clocker_app/src/team/ui/widgets/active_tab.dart';
+import 'package:clocker_app/src/team/ui/widgets/inactive_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 

@@ -1,6 +1,6 @@
-import 'package:cloker_app/bloc/app_bloc.dart';
-import 'package:cloker_app/src/help/ui/screens/new_doubt_screen.dart';
-import 'package:cloker_app/src/help/ui/widgets/doubt_detail.dart';
+import 'package:clocker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/src/help/ui/screens/new_doubt_screen.dart';
+import 'package:clocker_app/src/help/ui/widgets/doubt_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
@@ -56,7 +56,7 @@ class _Doubt extends State<Doubt> {
                       widget.doubtTitle,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                     ),
@@ -80,18 +80,12 @@ class _Doubt extends State<Doubt> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => DoubtDetail()));
-
-                      /* showDialog(
-                          context: context,
-                          builder: (BuildContext context) =>
-                              const DoubtDetail()); */
                     },
                     child: const Text("Ver duda"),
                   ))
             ],
           ),
         ),
-        //const Divider(),
       ],
     );
   }
