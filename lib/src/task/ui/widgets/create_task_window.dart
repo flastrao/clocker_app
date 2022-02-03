@@ -2,14 +2,14 @@ import 'package:cloker_app/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
-class taskWindow extends StatefulWidget {
-  const taskWindow({Key? key}) : super(key: key);
+class TaskWindow extends StatefulWidget {
+  const TaskWindow({Key? key}) : super(key: key);
 
   @override
-  State<taskWindow> createState() => _taskWindow();
+  State<TaskWindow> createState() => _TaskWindow();
 }
 
-class _taskWindow extends State<taskWindow> {
+class _TaskWindow extends State<TaskWindow> {
   TextEditingController taskTitle = TextEditingController();
   TextEditingController taskDescription = TextEditingController();
 

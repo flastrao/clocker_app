@@ -1,5 +1,5 @@
 import 'package:cloker_app/bloc/app_bloc.dart';
-import 'package:cloker_app/src/help/ui/widgets/general_tab.dart';
+import 'package:cloker_app/src/help/ui/widgets/doubt_area.dart';
 import 'package:cloker_app/src/help/ui/widgets/historic_tab.dart';
 import 'package:cloker_app/src/help/ui/widgets/mine_tab.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +61,7 @@ class _TabSelecterDoubtState extends State<TabSelecterDoubt>
               child: TabBarView(
                 controller: _tabController,
                 children: <Widget>[
-                  GeneralTab(),
+                  DoubtArea(),
                   MineTab(),
                   HistoricTab(),
                 ],

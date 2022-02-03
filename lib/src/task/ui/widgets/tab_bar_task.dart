@@ -59,10 +59,7 @@ class _TabSelecterTaskState extends State<TabSelecterTask>
               child: Container(
                 child: TabBarView(
                   controller: _tabController,
-                  children: <Widget>[
-                    PendingTab(),
-                    FinishedTab(),
-                  ],
+                  children: <Widget>[PendingTab(), FinishedTab()],
                 ),
               ),
             ),
