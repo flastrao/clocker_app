@@ -9,10 +9,8 @@ class DoubtScreen extends StatefulWidget {
 class _DoubtScreenState extends State<DoubtScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[TabSelecterDoubt()],
-      ),
+    return Column(
+      children: <Widget>[TabSelecterDoubt()],
     );
   }
 }

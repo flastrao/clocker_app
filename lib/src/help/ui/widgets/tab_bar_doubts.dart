@@ -30,7 +30,7 @@ class _TabSelecterDoubtState extends State<TabSelecterDoubt>
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -49,7 +49,7 @@ class _TabSelecterDoubtState extends State<TabSelecterDoubt>
               child: TabBar(
                 indicatorColor: Colors.black,
                 labelColor: Colors.black,
-                controller: this._tabController,
+                controller: _tabController,
                 tabs: const <Widget>[
                   Tab(text: "General"),
                   Tab(text: "Mis dudas"),
@@ -58,15 +58,13 @@ class _TabSelecterDoubtState extends State<TabSelecterDoubt>
               ),
             ),
             Expanded(
-              child: Container(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: <Widget>[
-                    GeneralTab(),
-                    MineTab(),
-                    HistoricTab(),
-                  ],
-                ),
+              child: TabBarView(
+                controller: _tabController,
+                children: <Widget>[
+                  GeneralTab(),
+                  MineTab(),
+                  HistoricTab(),
+                ],
               ),
             ),
           ],

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
 class ClockerDrawer extends StatefulWidget {
-  ClockerDrawer({Key? key}) : super(key: key);
+  const ClockerDrawer({Key? key}) : super(key: key);
 
   @override
   State<ClockerDrawer> createState() => _ClockerDrawerState();
@@ -36,7 +36,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
         children: <Widget>[
           Container(
             height: height * 0.32,
-            child: DrawerHeader(
+            child: const DrawerHeader(
               decoration: BoxDecoration(color: Colors.grey),
               child: UserProfileDrawer(),
             ),
@@ -45,7 +45,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
@@ -57,7 +57,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.grey,
@@ -134,7 +134,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => FAQScreen(),
+                  builder: (context) => const FAQScreen(),
                 ),
               );
             },
@@ -163,38 +163,32 @@ Widget listTileDrawer(
   Function onTap,
   IconData iconName,
 ) {
-  return Container(
-    child: Column(
-      children: <Widget>[
-        ListTile(
-          title: Container(
-            child: Row(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(right: width * 0.03),
-                  child: Icon(
-                    iconName,
-                    color: Colors.black,
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: height * 0.022,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+  return Column(
+    children: <Widget>[
+      ListTile(
+        title: Row(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(right: width * 0.03),
+              child: Icon(
+                iconName,
+                color: Colors.black,
+              ),
             ),
-          ),
-          onTap: () {
-            onTap();
-          },
+            Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: height * 0.022,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
-      ],
-    ),
+        onTap: () {
+          onTap();
+        },
+      ),
+    ],
   );
 }
