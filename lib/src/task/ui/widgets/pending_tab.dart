@@ -21,10 +21,7 @@ class _PendingTabState extends State<PendingTab> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TaskArea("BACKEND"),
-          TaskArea("FRONTEND"),
-          TaskArea("CLOCKER"),
-          TaskArea("WEB"),
+          TaskArea(),
         ],
       ),
     );
