@@ -9,7 +9,14 @@ import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
 class NavControlerScreen extends StatefulWidget {
-  NavControlerScreen({Key? key}) : super(key: key);
+  final BuildContext context;
+  final AppBloc _appBloc;
+
+  NavControlerScreen({
+    Key? key,
+    required this.context,
+  })  : _appBloc = BlocProvider.of<AppBloc>(context),
+        super(key: key);
 
   @override
   State<NavControlerScreen> createState() => _NavControlerScreenState();
@@ -89,9 +96,10 @@ class _NavControlerScreenState extends State<NavControlerScreen> {
 
   int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      widget._appBloc.setIndex(index);
+      //_selectedIndex = widget._appBloc.getIndex();
     });
   }
 
@@ -102,55 +110,59 @@ class _NavControlerScreenState extends State<NavControlerScreen> {
     double width = _appBloc.getWidth();
     double height = _appBloc.getHeight();
 
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
-        title: appbars.elementAt(_selectedIndex),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.help),
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) =>
-                    WhatisScreen(index: _selectedIndex),
-              );
-            },
-          )
-        ],
-      ),
-      drawer: ClockerDrawer(),
-      body: screens.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Tareas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.computer),
-            label: 'Sesiones',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: 'Equipo',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer),
-            label: 'Dudas',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        onTap: _onItemTapped,
-      ),
-    );
+    return StreamBuilder<int>(
+        stream: widget._appBloc.indexStream.stream,
+        builder: (context, snapshot) {
+          return Scaffold(
+            appBar: AppBar(
+              iconTheme: const IconThemeData(
+                color: Colors.black,
+              ),
+              title: appbars.elementAt(snapshot.data ?? 0),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.notifications),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: const Icon(Icons.help),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) =>
+                          WhatisScreen(index: snapshot.data ?? 0),
+                    );
+                  },
+                )
+              ],
+            ),
+            drawer: ClockerDrawer(),
+            body: screens.elementAt(snapshot.data ?? 0),
+            bottomNavigationBar: BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.book),
+                  label: 'Tareas',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.computer),
+                  label: 'Sesiones',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.people),
+                  label: 'Equipo',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.question_answer),
+                  label: 'Dudas',
+                ),
+              ],
+              currentIndex: snapshot.data ?? 0,
+              selectedItemColor: Colors.black,
+              unselectedItemColor: Colors.grey,
+              onTap: onItemTapped,
+            ),
+          );
+        });
   }
 }
