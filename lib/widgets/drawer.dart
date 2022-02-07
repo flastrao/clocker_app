@@ -75,12 +75,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             width,
             "Tareas",
             () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TasksScreen(),
-                ),
-              );
+              _appBloc.setIndex(0);
             },
             Icons.library_books,
           ),
@@ -89,12 +84,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             width,
             "Sesiones",
             () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SessionScreen(),
-                ),
-              );
+              _appBloc.setIndex(1);
             },
             Icons.computer,
           ),
@@ -103,12 +93,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             width,
             "Equipo",
             () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TeamScreen(),
-                ),
-              );
+              _appBloc.setIndex(2);
             },
             Icons.people,
           ),
@@ -117,12 +102,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             width,
             "Dudas",
             () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DoubtScreen(),
-                ),
-              );
+              _appBloc.setIndex(3);
             },
             Icons.question_answer,
           ),
@@ -131,12 +111,8 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             width,
             "Ayuda",
             () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const FAQScreen(),
-                ),
-              );
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const FAQScreen()));
             },
             Icons.help,
           ),
