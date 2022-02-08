@@ -19,4 +19,8 @@ class SessionModel {
     required this.finishedAt,
     required this.duration,
   });
+
+  factory SessionModel.fromJson(Map<String, dynamic> json) =>
+      _$SessionModelFromJson(json);
+  Map<String, dynamic> toJson() => _$SessionModelToJson(this);
 }

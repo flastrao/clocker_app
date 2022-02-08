@@ -28,6 +28,8 @@ class UserModel {
   String? updatedAt;
   @JsonKey(defaultValue: "")
   String? address;
+  @JsonKey(defaultValue: "")
+  String? status;
 
   UserModel({
     Key? key,
@@ -42,6 +44,7 @@ class UserModel {
     this.updatedAt,
     this.createdAt,
     this.address = "",
+    this.status = "",
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
