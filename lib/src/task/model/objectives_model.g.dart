@@ -8,7 +8,7 @@ part of 'objectives_model.dart';
 
 ObjectivesModel _$ObjectivesModelFromJson(Map<String, dynamic> json) {
   return ObjectivesModel(
-    id: json['_id'] as String?,
+    id: json['_id'] as String,
     description: json['description'] as String? ?? '',
   );
 }
