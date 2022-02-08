@@ -1,3 +1,4 @@
+import 'package:clocker_app/src/session/ui/widgets/tab_bar_session.dart';
 import 'package:flutter/material.dart';
 
 class SessionScreen extends StatefulWidget {
@@ -11,7 +12,9 @@ class _SessionScreenState extends State<SessionScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      child: Column(
+        children: <Widget>[TabSelecterSession()],
+      ),
     );
   }
 }
