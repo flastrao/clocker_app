@@ -3,6 +3,7 @@ import 'package:clocker_app/src/help/ui/screens/doubts_screen.dart';
 import 'package:clocker_app/src/session/ui/screens/session_screen.dart';
 import 'package:clocker_app/src/task/ui/screens/tasks_screen.dart';
 import 'package:clocker_app/src/team/ui/screens/team_screen.dart';
+import 'package:clocker_app/src/user/ui/screens/login_screen.dart';
 import 'package:clocker_app/src/user/ui/screens/main_screens/help_screen.dart';
 import 'package:clocker_app/src/user/ui/widgets/profile_drawer.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +77,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             "Tareas",
             () {
               _appBloc.setIndex(0);
+              Navigator.of(context).pop();
             },
             Icons.library_books,
           ),
@@ -85,6 +87,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             "Sesiones",
             () {
               _appBloc.setIndex(1);
+              Navigator.of(context).pop();
             },
             Icons.computer,
           ),
@@ -94,6 +97,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             "Equipo",
             () {
               _appBloc.setIndex(2);
+              Navigator.of(context).pop();
             },
             Icons.people,
           ),
@@ -103,6 +107,7 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             "Dudas",
             () {
               _appBloc.setIndex(3);
+              Navigator.of(context).pop();
             },
             Icons.question_answer,
           ),
@@ -111,8 +116,13 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
             width,
             "Ayuda",
             () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const FAQScreen()));
+              Navigator.of(context).pop();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FAQScreen(),
+                ),
+              );
             },
             Icons.help,
           ),
@@ -122,7 +132,14 @@ class _ClockerDrawerState extends State<ClockerDrawer> {
               height,
               width,
               "Cerrar sesion",
-              () {},
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
+                  ),
+                );
+              },
               Icons.logout,
             ),
           ),
