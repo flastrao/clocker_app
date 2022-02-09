@@ -8,11 +8,14 @@ class ObjectivesModel {
   String id;
   @JsonKey(defaultValue: '')
   String description;
+  @JsonKey(defaultValue: false)
+  bool finish;
 
   ObjectivesModel({
     Key? key,
     this.id = "",
     this.description = "",
+    required this.finish,
   });
 
   factory ObjectivesModel.fromJson(Map<String, dynamic> json) =>

@@ -40,6 +40,10 @@ class _TeamMemberState extends State<TeamMember> {
                 color: Colors.black,
                 width: width * 0.05,
               ),
+              bottom: BorderSide(
+                color: Colors.black,
+                width: width * 0.002,
+              ),
             ),
           ),
           child: Row(
@@ -99,9 +103,6 @@ class _TeamMemberState extends State<TeamMember> {
             ],
           ),
         ),
-        Container(
-          height: height * 0.02,
-        )
       ],
     );
   }
