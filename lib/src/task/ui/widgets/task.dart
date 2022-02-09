@@ -1,4 +1,5 @@
 import 'package:clocker_app/bloc/app_bloc.dart';
+import 'package:clocker_app/src/task/model/objectives_model.dart';
 import 'package:clocker_app/src/task/ui/widgets/task_actions.dart';
 import 'package:flutter/material.dart';
 import 'package:cool_dropdown/cool_dropdown.dart';
@@ -8,7 +9,7 @@ class Task extends StatefulWidget {
   late bool status;
   String progress;
   String title;
-  String goal;
+  List<ObjectivesModel> goal;
   String description;
   String term;
   int progressStatus;
